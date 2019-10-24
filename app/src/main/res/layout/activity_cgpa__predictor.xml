@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cgpa_Predictor">
+
+    <TextView
+        android:id="@+id/e_r_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter Required Details"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        android:textSize="21dp"
+        android:textColor="@color/black" />
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/e_r_d"
+    android:id="@+id/detail_entry_layout"
+    android:layout_marginTop="10dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Ti1"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="75dp">
+
+        <EditText
+            android:id="@+id/current_cgpa"
+            android:layout_width="174dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Current CGPA"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/Ti1"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/Ti2"
+        tools:layout_editor_absoluteY="75dp">
+
+        <EditText
+            android:id="@+id/expected_cgpa"
+            android:layout_width="185dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Expected CGPA"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+</RelativeLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_below="@+id/detail_entry_layout"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/Ti3"
+        tools:layout_editor_absoluteY="75dp">
+
+        <EditText
+            android:id="@+id/semester_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Number of Semester Left"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/Predict"
+        android:layout_width="394dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Ti3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:text="PREDICT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="445dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>

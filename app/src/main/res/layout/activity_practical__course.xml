@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Practical_Course">
+
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="329dp"
+        android:layout_height="46dp"
+        android:hint="Add Subject Marks"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:textAlignment="textStart"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@+id/t1"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/Ti1"
+        tools:layout_editor_absoluteY="75dp">
+
+        <EditText
+            android:id="@+id/prac_course_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Course Code"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/white" />
+
+       </com.google.android.material.textfield.TextInputLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Ti1"
+        android:id="@+id/r1">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/Ti2"
+            app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="155dp">
+
+            <EditText
+                android:id="@+id/prac_Attendence"
+                android:layout_width="214dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Attendence"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="253dp"
+            android:layout_height="78dp"
+            tools:ignore="MissingConstraints"
+            android:layout_toEndOf="@+id/Ti2"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="152dp">
+
+            <EditText
+                android:id="@+id/prac_credits"
+                android:layout_width="214dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Credits"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r1"
+        android:id="@+id/r2">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Ti3"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="155dp">
+
+            <EditText
+                android:id="@+id/prac_lab1"
+                android:layout_width="214dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="LAB1 of 50"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti4"
+            android:layout_width="142dp"
+            android:layout_height="78dp"
+            android:layout_toEndOf="@+id/Ti3"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="152dp">
+
+            <EditText
+                android:id="@+id/prac_lab2"
+                android:layout_width="138dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="LAB2 of 50"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti5"
+            android:layout_width="124dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:layout_toEndOf="@+id/ti4"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="152dp">
+
+            <EditText
+                android:id="@+id/prac_lab3"
+                android:layout_width="214dp"
+                android:layout_height="51dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="10dp"
+                android:hint="LAB3 of 50"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_ete"
+        android:layout_width="403dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r2"
+        android:layout_marginEnd="8dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="75dp">
+
+        <EditText
+            android:id="@+id/prac_ete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="10dp"
+            android:hint="EtE of 100"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ti_ete"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/prac_Save"
+        android:text="Save"/>
+
+</RelativeLayout>

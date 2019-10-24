@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">cgpaCalculator</string>
+    <string name="btn_link_to_register">Not a member? Get registered in Firebase now!</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_forgot_password">Forget Password</string>
+    <string name="auth_failed">authentication failed</string>
+    <string name="minimum_password">password length must be of 6</string>
+    <string name="btn_link_to_login">login_link</string>
+    <string name="action_sign_in_short">sign in</string>
+    <string name="hint_bloodGroup">Registration Number</string>
+    <string name="hint_name">Name</string>
+    <string name="btn_reset_password">reset password</string>
+    <string name="btn_back">back</string>
+    <string name="lbl_forgot_password">forget_password</string>
+    <string name="forgot_password_msg">forgot password message</string>
+</resources>
