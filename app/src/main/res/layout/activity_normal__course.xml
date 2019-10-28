@@ -72,7 +72,7 @@
 
             <EditText
                 android:id="@+id/Attendence"
-                android:layout_width="214dp"
+                android:layout_width="168dp"
                 android:layout_height="51dp"
                 android:layout_marginBottom="10dp"
                 android:hint="Attendence"
@@ -94,7 +94,7 @@
 
             <EditText
                 android:id="@+id/credits"
-                android:layout_width="214dp"
+                android:layout_width="200dp"
                 android:layout_height="51dp"
                 android:layout_marginBottom="10dp"
                 android:hint="Credits"
@@ -124,7 +124,7 @@
 
             <EditText
                 android:id="@+id/ca1"
-                android:layout_width="214dp"
+                android:layout_width="168dp"
                 android:layout_height="51dp"
                 android:layout_marginBottom="10dp"
                 android:hint="CA1 of 30"
@@ -146,7 +146,7 @@
 
             <EditText
                 android:id="@+id/ca2"
-                android:layout_width="214dp"
+                android:layout_width="200dp"
                 android:layout_height="51dp"
                 android:layout_marginBottom="10dp"
                 android:hint="CA2 of 30"
@@ -176,7 +176,7 @@
 
         <EditText
             android:id="@+id/mte"
-            android:layout_width="214dp"
+            android:layout_width="168dp"
             android:layout_height="51dp"
             android:layout_marginBottom="10dp"
             android:hint="MTE of 40"
@@ -198,7 +198,7 @@
 
         <EditText
             android:id="@+id/ete"
-            android:layout_width="214dp"
+            android:layout_width="200dp"
             android:layout_height="51dp"
             android:layout_marginBottom="10dp"
             android:hint="ETE of 70"

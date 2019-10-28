@@ -6,7 +6,7 @@
     <string name="btn_login">Login</string>
     <string name="btn_forgot_password">Forget Password</string>
     <string name="auth_failed">authentication failed</string>
-    <string name="minimum_password">password length must be of 6</string>
+    <string name="minimum_password">password must be of length six</string>
     <string name="btn_link_to_login">login_link</string>
     <string name="action_sign_in_short">sign in</string>
     <string name="hint_bloodGroup">Registration Number</string>

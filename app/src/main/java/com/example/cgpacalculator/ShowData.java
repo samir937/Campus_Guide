@@ -3,6 +3,7 @@ package com.example.cgpacalculator;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -76,7 +77,8 @@ public class ShowData extends AppCompatActivity {
                     creditsum+=subjects.get(i).getCredit();
                     i++;
                 }
-                total.setText(String.valueOf(totalGpa/creditsum));
+
+                total.setText(String.valueOf(Math.round((totalGpa/creditsum)* 100.0)/100.0));
                 adapter = new MyListAdapter(ShowData.this,subjects);
                 recyclerView.setAdapter(adapter);
             }
@@ -87,8 +89,13 @@ public class ShowData extends AppCompatActivity {
             }
         });
 
-
-
-
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
