@@ -40,7 +40,6 @@ public class Normal_Course extends AppCompatActivity {
     RelativeLayout relativeLayout;
     DatabaseReference mref;
     String userid;
-    ArrayList<SubjectDetails> subjectsSem1,subjectsSem2,subjectsSem3,subjectsSem4,subjectsSem5,subjectsSem6,subjectsSem7,subjectsSem8;
     String sems[]={"Semester1","Semester2","Semester3","Semester4","Semester5","Semester6","Semester7","Semester8"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,15 +70,6 @@ public class Normal_Course extends AppCompatActivity {
         mte_marks=findViewById(R.id.mte);
         ete_marks=findViewById(R.id.ete);
         semspin=findViewById(R.id.semList);
-
-        subjectsSem1=new ArrayList<>();
-        subjectsSem2=new ArrayList<>();
-        subjectsSem3=new ArrayList<>();
-        subjectsSem4=new ArrayList<>();
-        subjectsSem5=new ArrayList<>();
-        subjectsSem6=new ArrayList<>();
-        subjectsSem7=new ArrayList<>();
-        subjectsSem8=new ArrayList<>();
 
         relativeLayout=findViewById(R.id.Layout_normal_course);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -252,65 +242,57 @@ public class Normal_Course extends AppCompatActivity {
 
                 if(semester.equals("Semester1"))
                 {
-                    subjectsSem1.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("subjects").setValue(subjectsSem1);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
                 else if(semester.equals("Semester2"))
                 {
-                    subjectsSem2.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("Subjects").setValue(subjectsSem2);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
                 else if(semester.equals("Semester3"))
                 {
-                    subjectsSem3.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("Subjects").setValue(subjectsSem3);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
                 else if(semester.equals("Semester4"))
                 {
-                    subjectsSem4.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("Subjects").setValue(subjectsSem4);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
                 else if(semester.equals("Semester5"))
                 {
-                    subjectsSem5.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("Subjects").setValue(subjectsSem5);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
                 else if(semester.equals("Semester6"))
                 {
-                    subjectsSem6.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("Subjects").setValue(subjectsSem6);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
                 else if(semester.equals("Semester7"))
                 {
-                    subjectsSem7.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("Subjects").setValue(subjectsSem7);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
                 else if(semester.equals("Semester8"))
                 {
-                    subjectsSem8.add(new SubjectDetails(course,attendence_weightage,course_credit,ca_weightage,mte_weightage,ete_weightage,total_marks,Grade,gpa));
-                    mref.child("Subjects").setValue(subjectsSem8);
-
+                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                    mref.child("subjects").push().setValue(subjectDetails);
                     Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
                 }
