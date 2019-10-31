@@ -11,21 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResetPasswordActivity"></activity>
+        <activity android:name=".Byod_Course"></activity>
+        <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".Login"
-           >
-            >
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity">
-
-        </activity>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".Cgpa_Predictor" />
         <activity android:name=".Bunk_Predictor" />
         <activity android:name=".add_subject_acitivity" />

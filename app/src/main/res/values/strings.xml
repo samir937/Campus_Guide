@@ -15,4 +15,5 @@
     <string name="btn_back">back</string>
     <string name="lbl_forgot_password">forget_password</string>
     <string name="forgot_password_msg">forgot password message</string>
+    <string name="title_activity_byod_course">Byod_course</string>
 </resources>
