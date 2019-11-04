@@ -1,9 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Byod_Course">
+    android:id="@+id/Layout_normal_course"
+    tools:context=".Normal_Course">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="329dp"
+        android:layout_height="46dp"
+        android:hint="Add Subject Marks"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:textAlignment="textStart"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Spinner
+        android:id="@+id/semList"
+        android:layout_below="@+id/t1"
+        android:layout_width="345dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_height="47dp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="368dp">
+
+    </Spinner>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_below="@+id/semList"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/Ti1"
+        tools:layout_editor_absoluteY="75dp">
+
+        <EditText
+            android:id="@+id/course_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Course Code"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Ti1"
+        android:id="@+id/r1">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/Ti2"
+            app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="155dp">
+
+            <EditText
+                android:id="@+id/Attendence"
+                android:layout_width="168dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Attendence"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="253dp"
+            android:layout_height="78dp"
+            tools:ignore="MissingConstraints"
+            android:layout_toEndOf="@+id/Ti2"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="152dp">
+
+            <EditText
+                android:id="@+id/credits"
+                android:layout_width="200dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Credits"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r1"
+        android:id="@+id/r2">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/Ti3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="155dp">
+
+            <EditText
+                android:id="@+id/ca1"
+                android:layout_width="168dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="CA1 of 30"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti4"
+            android:layout_width="253dp"
+            android:layout_height="78dp"
+            tools:ignore="MissingConstraints"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@+id/Ti3"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="152dp">
+
+            <EditText
+                android:id="@+id/ca2"
+                android:layout_width="200dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="CA2 of 30"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/r3"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@+id/r2">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti6"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            tools:ignore="MissingConstraints"
+            android:layout_toEndOf="@+id/ti5"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="333dp">
+
+            <EditText
+                android:id="@+id/ete"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_marginBottom="10dp"
+                android:hint="ETP of 100"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="394dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-228dp"
+        android:layout_marginEnd="8dp"
+        android:text="SAVE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="445dp" />
+    <Button
+        android:id="@+id/show"
+        android:layout_width="394dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/save"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-228dp"
+        android:layout_marginEnd="8dp"
+        android:text="SHow TGPA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="445dp" />
+
+</RelativeLayout>

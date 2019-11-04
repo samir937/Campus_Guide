@@ -46,7 +46,7 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/registration_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
@@ -65,7 +65,7 @@
 
             android:layout_marginTop="15dp"
             android:layout_marginEnd="9dp"
-            android:layout_toEndOf="@+id/textView2"
+            android:layout_toEndOf="@+id/registration_text"
             android:gravity="center_vertical"
             android:hint="CA MARKS"
             android:textSize="17dp" />
@@ -74,7 +74,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/registration_text"
             android:layout_marginStart="9dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
@@ -86,7 +86,7 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/registration_text"
 
             android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"

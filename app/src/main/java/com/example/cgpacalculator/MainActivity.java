@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button normal_course_btn,practical_course_btn,pe_course_btn,four_practical_btn;
+    Button normal_course_btn,practical_course_btn,byod_course_btn,four_practical_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        pe_course_btn=findViewById(R.id.pe_course);
-        pe_course_btn.setOnClickListener(new View.OnClickListener() {
+        byod_course_btn=findViewById(R.id.pe_course);
+        byod_course_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Bunk_Predictor.class);
+                Intent i=new Intent(MainActivity.this,Byod_Course.class);
                 startActivity(i);
             }
         });

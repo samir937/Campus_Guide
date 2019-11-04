@@ -11,15 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Byod_Course"></activity>
-        <activity android:name=".ResetPasswordActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".Login">
+        <activity android:name=".splashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".FoodActivity" />
+        <activity android:name=".Byod_Course" />
+        <activity android:name=".ResetPasswordActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".Login">
+
         </activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".Cgpa_Predictor" />
@@ -29,6 +33,10 @@
         <activity android:name=".Practical_Course" />
         <activity android:name=".Normal_Course" />
         <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_p6RZAZPkTgtyVO" />
     </application>
 
 </manifest>

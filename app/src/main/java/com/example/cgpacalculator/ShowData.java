@@ -1,6 +1,7 @@
 package com.example.cgpacalculator;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,10 +40,12 @@ public class ShowData extends AppCompatActivity {
     String sem;
     ProgressDialog progressDialog;
     TextView total;
+    Button show_marks;
+    FloatingActionButton addButton;
     RecyclerView recyclerView;
     double creditsum = 0.0d, totalGpa = 0.0d;
     int i = 0;
-    String sems[] = {"Semester1", "Semester2", "Semester3", "Semester4", "Semester5", "Semester6", "Semester7", "Semester8"};
+    String sems[] = {"Choose Semester","Semester1", "Semester2", "Semester3", "Semester4", "Semester5", "Semester6", "Semester7", "Semester8"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,54 +56,90 @@ public class ShowData extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, sems);
         spinner.setAdapter(arrayAdapter);
         total = findViewById(R.id.tgpaText);
-
+        show_marks=findViewById(R.id.show_data);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        Toast.makeText(ShowData.this,"Choose a Semester",Toast.LENGTH_SHORT).show();
+
         actionBar.setTitle("TGPA CALCULATOR");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0A76D6")));
 
+        addButton=findViewById(R.id.addSubjects);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShowData.this,MainActivity.class));
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         sem = spinner.getSelectedItem().toString().trim();
-        reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid()).child("Semesters").child("Semester2").child("subjects");
 
-        progressDialog = new ProgressDialog(ShowData.this);
-        progressDialog.setMessage("Loading Please Wait...");
-        progressDialog.setCancelable(false);
-        //progressDialog.setTitle("ProgressDialog bar example");
-        // progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.show();
-
-        reference.addValueEventListener(new ValueEventListener() {
+       /* spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    SubjectDetails subs = dataSnapshot1.getValue(SubjectDetails.class);
-                    subjects.add(subs);
-                    progressDialog.dismiss();
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position)
+                {
+                    case 1: se
                 }
 
-                while (i < subjects.size()) {
-                    totalGpa += ((subjects.get(i).getGPA()) * (subjects.get(i).getCredit()));
-                    creditsum += subjects.get(i).getCredit();
-                    i++;
-                }
-
-                total.setText(String.valueOf(Math.round((totalGpa / creditsum) * 100.0) / 100.0));
-                adapter = new MyListAdapter(ShowData.this, subjects);
-                recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(ShowData.this, "oops something went wrong ", Toast.LENGTH_SHORT).show();
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
-        });
+        });*/
+
+
+       show_marks.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               subjects.clear();
+               sem = spinner.getSelectedItem().toString().trim();
+               reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid()).child("Semesters").child(sem).child("subjects");
+
+               progressDialog = new ProgressDialog(ShowData.this);
+               progressDialog.setMessage("Loading Please Wait...");
+               progressDialog.setCancelable(false);
+               //progressDialog.setTitle("ProgressDialog bar example");
+               // progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+               progressDialog.show();
+
+               reference.addValueEventListener(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                       for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                           SubjectDetails subs = dataSnapshot1.getValue(SubjectDetails.class);
+                           subjects.add(subs);
+                           progressDialog.dismiss();
+                       }
+
+                       while (i < subjects.size()) {
+                           totalGpa += ((subjects.get(i).getGPA()) * (subjects.get(i).getCredit()));
+                           creditsum += subjects.get(i).getCredit();
+                           i++;
+                       }
+
+                       total.setText(String.valueOf(Math.round((totalGpa / creditsum) * 100.0) / 100.0));
+                       adapter = new MyListAdapter(ShowData.this, subjects);
+                       recyclerView.setAdapter(adapter);
+                   }
+
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError databaseError) {
+                       Toast.makeText(ShowData.this, "oops something went wrong ", Toast.LENGTH_SHORT).show();
+                   }
+               });
+
+           }
+       });
 
     }
 

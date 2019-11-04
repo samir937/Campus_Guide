@@ -12,7 +12,7 @@ import android.view.View;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private CardView cardNotes,cardCgpa,cardTgpa,cardFood,cardBunk,cardGym;
+    private CardView cardNotes,cardCgpa,cardTgpa,cardfood,cardBunk,cardGym;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         cardNotes = findViewById(R.id.cardNotes);
         cardCgpa = findViewById(R.id.cardCgpa);
         cardTgpa = findViewById(R.id.cardTGPA);
-        cardFood = findViewById(R.id.cardFood);
+        cardfood = findViewById(R.id.cardFood);
         cardGym = findViewById(R.id.cardGym);
         cardBunk=findViewById(R.id.cardBunk);
 
@@ -49,10 +49,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        cardFood.setOnClickListener(new View.OnClickListener() {
+        cardfood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(HomeActivity.this,FoodActivity.class));
             }
         });
 
