@@ -1,4 +1,4 @@
-package com.example.cgpacalculator;
+package com.example.FoodStore;
 
 public class ModelData
 {

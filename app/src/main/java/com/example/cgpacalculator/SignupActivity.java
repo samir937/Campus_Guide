@@ -2,9 +2,14 @@ package com.example.cgpacalculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import de.hdodenhof.circleimageview.CircleImageView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -13,16 +18,36 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
+import java.util.UUID;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword,inputFullName,inputBloodGroup;
-    private Button btnSignIn, btnSignUp, btnResetPassword;
+    private EditText inputEmail, inputPassword,inputFullName,inputRegistration;
+    private Button btnSignIn, btnSignUp;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+    private  CircleImageView profileImage;
+    private final int PICK_IMAGE_REQUEST = 77;
+    private Uri filePath;
+    FirebaseStorage storage;
+    DatabaseReference reference;
+    StorageReference storageReference;
+    String imageUri,name,email,password,universityid;
+    boolean complete=false;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,25 +61,27 @@ public class SignupActivity extends AppCompatActivity {
         inputEmail = findViewById(R.id.editTextEmail);
         inputPassword = findViewById(R.id.editTextPassword);
         inputFullName=findViewById(R.id.editTextName);
-        inputBloodGroup=findViewById(R.id.editTextBloodGroup);
+        inputRegistration=findViewById(R.id.editTextregistration);
         progressBar =  findViewById(R.id.progressBar);
-        btnResetPassword = findViewById(R.id.btn_reset_password);
+        profileImage=findViewById(R.id.imageViewUser);
 
-        getSupportActionBar().hide();
+        reference= FirebaseDatabase.getInstance().getReference();
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
-        btnResetPassword.setOnClickListener(new View.OnClickListener() {
+        profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //  Toast.makeText(SignupActivity.this, "Signed Up", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(SignupActivity.this, ResetPasswordActivity.class));
-
+                chooseImage();
             }
         });
+
+        getSupportActionBar().hide();
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SignupActivity.this, "Prrssed", Toast.LENGTH_SHORT).show();
+
                 Intent intent=new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 //finish();
@@ -65,15 +92,25 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String name = inputFullName.getText().toString().trim();
-                String email = inputEmail.getText().toString().trim();
-                String password = inputPassword.getText().toString().trim();
-                String registrationNumber = inputBloodGroup.getText().toString().trim();
+                progressDialog = new ProgressDialog(SignupActivity.this);
+                progressDialog.setTitle("Uploading...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+
+                name = inputFullName.getText().toString().trim();
+                email = inputEmail.getText().toString().trim();
+                password = inputPassword.getText().toString().trim();
+                universityid = inputRegistration.getText().toString().trim();
 
                 if(TextUtils.isEmpty(name)){
                     inputFullName.setError("Enter Full Name!");
                     return;
                 }
+                if(TextUtils.isEmpty(universityid)){
+                   inputRegistration.setError("Enter Registration Number");
+                    return;
+                }
+
                 if (TextUtils.isEmpty(email)) {
                     inputEmail.setError("Enter Email Address!");
                     return;
@@ -100,17 +137,93 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_LONG).show();
                                 } else {
-                                    Toast.makeText(SignupActivity.this, "SignedUp", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(SignupActivity.this, Login.class));
-                                    finish();
+
+                                    uploadImage();
                                 }
                             }
                         });
+
+
 
             }
         });
     }
 
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null )
+        {
+            filePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                profileImage.setImageBitmap(bitmap);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void uploadImage() {
+
+        if(filePath != null)
+        {
+
+            final StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    imageUri= String.valueOf(uri);
+                                    String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                    UserPC newuser=new UserPC();
+                                    newuser.setName(name);
+                                    newuser.setEmail(email);
+                                    newuser.setPassword(password);
+                                    newuser.setUniversityid(universityid);
+                                    newuser.setUri(imageUri);
+                                    reference.child("Users").child(uid).child("User Details").setValue(newuser);
+
+                                    if(complete) {
+                                        Toast.makeText(SignupActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(SignupActivity.this, Login.class));
+                                        finish();
+                                    }
+                                }
+                            });
+                            progressDialog.dismiss();
+                            complete=true;
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(SignupActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
+
+    }
     @Override
     protected void onResume() {
         super.onResume();

@@ -1,4 +1,4 @@
-package com.example.cgpacalculator;
+package com.example.FoodStore;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.cgpacalculator.R;
 import com.razorpay.Checkout;
 
 import java.util.ArrayList;

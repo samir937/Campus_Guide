@@ -1,4 +1,4 @@
-package com.example.cgpacalculator;
+package com.example.FoodStore;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cgpacalculator.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class MenuAdapter extends BaseAdapter
         final ModelData data=list_data.get(position);
         t1.setText(data.getItem_name());
         t2.setText("\u20B9"+" "+data.getItem_price());
-        Picasso.with(ct).load(data.getItem_url()).fit().centerCrop().into(i1);
+        Picasso.get().load(data.getItem_url()).fit().centerCrop().into(i1);
 
         ImageView i2=convertView.findViewById(R.id.sp_grid_i2);
         i2.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,4 @@
-package com.example.cgpacalculator;
+package com.example.FoodStore;
 
 public class ModelOrder {
     private String item_name, item_price, item_quantity, item_shop, item_url, item_owner;

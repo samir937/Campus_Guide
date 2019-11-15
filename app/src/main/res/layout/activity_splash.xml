@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/back"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,8 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="140dp"
         android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
         android:padding="16dp">
 
         <ImageView
@@ -27,13 +30,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lpu Campus Guide"
-            android:layout_marginTop="70dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:fontFamily="serif-monospace"
-            />
+            android:layout_marginTop="46dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="LPU CAMPUS GUIDE"
+            android:textColor="#E67C0A"
+            android:textSize="24sp"
+            android:textStyle="bold"  />
 
 
 

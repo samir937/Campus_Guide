@@ -23,8 +23,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
     implementation 'com.google.android.material:material:1.0.0-beta01'
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //firebase dependencies...
     implementation 'com.google.firebase:firebase-auth:19.1.0'
@@ -33,16 +37,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'com.google.firebase:firebase-storage:19.1.0'
 
-
-    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
-
-
-
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.razorpay:checkout:1.5.12'
 
     //other
     testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:rules:1.1.0-alpha4'
+    testImplementation 'org.mockito:mockito-core:2.18.0'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 }

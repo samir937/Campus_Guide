@@ -1,4 +1,4 @@
-package com.example.cgpacalculator;
+package com.example.FoodStore;
 
 
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.cgpacalculator.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,11 +23,13 @@ import androidx.fragment.app.Fragment;
 
 public class Menu extends Fragment
 {
+
     GridView gv;
     MenuAdapter adapter;
     ArrayList<ModelData> data;
     DatabaseReference data_ref;
     SearchView sv;
+    String filter;
 
     public Menu() {}
 
@@ -36,6 +39,9 @@ public class Menu extends Fragment
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_menu, container, false);
+
+        filter = getArguments().getString("shop");
+
         data_ref= FirebaseDatabase.getInstance().getReference("Items");
         gv=v.findViewById(R.id.sp_menu_gv);
         sv=(SearchView)v.findViewById(R.id.menu_sv);
@@ -66,7 +72,8 @@ public class Menu extends Fragment
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
                     ModelData d=ds.getValue(ModelData.class);
-                    data.add(d);
+                    if(filter.equals("10") | filter.equals(d.getItem_shop()))
+                        data.add(d);
                 }
 
                 adapter=new MenuAdapter(getActivity(),data);
@@ -75,7 +82,7 @@ public class Menu extends Fragment
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(),"Error Occured", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"Error Occured",Toast.LENGTH_LONG).show();
             }
         });
     }

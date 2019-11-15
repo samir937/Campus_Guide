@@ -6,11 +6,12 @@
     <color name="black">#0A0303</color>
     <color name="white">#ffffff</color>
     <color name="Blue">#2175F3</color>
-
-    <color name="grey">#ACAAAA</color>
+    <color name="grey">#DBD9D9</color>
     <color name="gen_white">#FFFFFF</color>
     <color name="yellow">#f2fe71</color>
     <color name="lightBlue">#0A76D6</color>
     <color name="darkgreen">#0097a7</color>
     <color name="bg_login">#00bcd4</color>
+    <color name="colorPrimar">#00008b</color>
+    <color name="colorAccen">#FFFF00</color>
 </resources>

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">LpuCampusGuide</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="btn_link_to_register">Not a member? Get registered in Firebase now!</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -16,4 +18,6 @@
     <string name="lbl_forgot_password">forget_password</string>
     <string name="forgot_password_msg">forgot password message</string>
     <string name="title_activity_byod_course">Byod_course</string>
+
+
 </resources>

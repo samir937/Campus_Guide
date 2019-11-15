@@ -1,4 +1,4 @@
-package com.example.cgpacalculator;
+package com.example.FoodStore;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cgpacalculator.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
         viewHolder.t2.setText(item.get(i).getItem_shop());
         viewHolder.t3.setText(item.get(i).getItem_price());
 
-        Picasso.with(ct).load(item.get(i).getItem_url()).fit().centerCrop().into(viewHolder.i1);
+        Picasso.get().load(item.get(i).getItem_url()).fit().centerCrop().into(viewHolder.i1);
 
         final int index=i;
         viewHolder.i2.setOnClickListener(new View.OnClickListener() {
