@@ -1,4 +1,4 @@
 # Campus_Guide
-My cgpa project
+This is a campus guide for lovely professional University 
 
-The cgpa predictor module is made with regulation of Lovely Professional University
+
