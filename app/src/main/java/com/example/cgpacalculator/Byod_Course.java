@@ -149,7 +149,7 @@ public class Byod_Course extends AppCompatActivity {
                     credit.setError("Enter a valid course credit");
                 }
 
-                if(!course_code.getText().toString().equals("")&& !ca1_marks.getText().toString().equals("")&& !ca2_marks.getText().toString().equals("") && !ete_marks.getText().toString().equals("") &&!attendence_perc.getText().toString().equals("")&&!credit.getText().toString().equals(""))
+                if(marks_ca1<=30 && marks_ca2<=30 &&marks_ete<=100 &&!course_code.getText().toString().equals("")&& !ca1_marks.getText().toString().equals("")&& !ca2_marks.getText().toString().equals("") && !ete_marks.getText().toString().equals("") &&!attendence_perc.getText().toString().equals("")&&!credit.getText().toString().equals(""))
                 {
                     ca_weightage = ((0.75 * marks_ca1) + (0.75 * marks_ca2));
                     mte_weightage = 0.0d;

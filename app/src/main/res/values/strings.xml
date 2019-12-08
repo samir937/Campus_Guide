@@ -22,10 +22,10 @@
     <string-array name="array_facts">
         <item>OPDs(Out Patient Department)</item>
         <item>OPD charges</item>
-        <item>Amnulance</item>
+        <item>Ambulance</item>
         <item>Emergency</item>
-        <item>Patient Addmission</item>
-        <item>Timing of Chamist Shop</item>
+        <item>Patient Admission</item>
+        <item>Timing of Chemist Shop</item>
 
     </string-array>
 

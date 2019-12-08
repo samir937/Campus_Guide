@@ -165,8 +165,8 @@ public class Normal_Course extends AppCompatActivity {
                     credit.setError("Enter a valid course credit");
                 }
 
-                if(!course_code.getText().toString().equals("")&& !ca1_marks.getText().toString().equals("")&& marks_ca1<30 && marks_ca2<30
-                        && !ca2_marks.getText().toString().equals("") && !mte_marks.getText().toString().equals("")&& marks_mte<40 && !ete_marks.getText().toString().equals("")&& marks_ete<70 && !attendence_perc.getText().toString().equals("")&& attendence_percentage<100&&!credit.getText().toString().equals("")&& course_credit>1)
+                if(!course_code.getText().toString().equals("")&& !ca1_marks.getText().toString().equals("")&& marks_ca1<=30 && marks_ca2<=30
+                        && !ca2_marks.getText().toString().equals("") && !mte_marks.getText().toString().equals("")&& marks_mte<=40 && !ete_marks.getText().toString().equals("")&& marks_ete<=70 && !attendence_perc.getText().toString().equals("")&& attendence_percentage<=100&&!credit.getText().toString().equals("")&& course_credit>=1)
                 {
 
                     ca_weightage = ((0.416 * marks_ca1) + (0.416 * marks_ca2));

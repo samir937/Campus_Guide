@@ -1,9 +1,12 @@
 package com.example.FoodStore;
 
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -25,6 +28,14 @@ import java.util.ArrayList;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_food_home);
+
+
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+            }
+            actionBar.setTitle("Food");
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
             Bundle bundle = getIntent().getExtras();
             filter = bundle.getString("shop");
@@ -91,5 +102,14 @@ import java.util.ArrayList;
                 ob.setKey(uploadid);
                 data_ref.child(uploadid).setValue(ob);
             }
+        }
+
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    finish();
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
         }
     }

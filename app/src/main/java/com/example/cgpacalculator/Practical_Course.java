@@ -136,7 +136,7 @@ public class Practical_Course extends AppCompatActivity {
                 }
 
 
-                if(!Lab1_marks.getText().toString().equals("") && !lab_credit.getText().toString().equals("") && !Lab2_marks.getText().toString().equals("") && !Lab3_marks.getText().toString().equals("") && !lab_attendence_perc.getText().toString().equals("") && !lab_course_code.getText().toString().equals("") )
+                if(marks_Lab1<=50 && marks_Lab2<=50&& marks_Lab3<=50 && marks_ete<=100 && !Lab1_marks.getText().toString().equals("") && !lab_credit.getText().toString().equals("") && !Lab2_marks.getText().toString().equals("") && !Lab3_marks.getText().toString().equals("") && !lab_attendence_perc.getText().toString().equals("") && !lab_course_code.getText().toString().equals("") )
                 {
                     ca_weightage = ((0.30 * marks_Lab1) + (0.30 * marks_Lab2)+(0.30 * marks_Lab3));
                     mte_weightage = 0.0d;

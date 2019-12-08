@@ -43,27 +43,46 @@ public class Bunk_Predictor extends AppCompatActivity {
             public void onClick(View v) {
 
 
+
+
+                if(class_attended.getText().toString().equals(""))
+                {
+                    class_attended.setError("Enter Value");
+                }
+                else
+                {
+                    attended=Integer.parseInt(class_attended.getText().toString());
+                }
+                if(total_classes.getText().toString().equals(""))
+                {
+                    total_classes.setError("Enter Values");
+                }
+                else
+                {
+                    total=Integer.parseInt(total_classes.getText().toString());
+                }
+
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                         InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
-                attended=Integer.parseInt(class_attended.getText().toString());
-                total=Integer.parseInt(total_classes.getText().toString());
-
-                attendencePercentage=  ((attended*100)/total);
-
-                if(attendencePercentage<=75)
+                if(!class_attended.getText().toString().equals("")&& !total_classes.getText().toString().equals(""))
                 {
-                    bunk.setTextColor(Color.RED);
-                    bunk.setText("You can't bunk any more classes");
+                    attendencePercentage=  ((attended*100)/total);
 
-                }
-                else {
-                    class_bunks = ((attendencePercentage - 75) * (total)) / 100;
+                    if(attendencePercentage<=75)
+                    {
+                        bunk.setTextColor(Color.RED);
+                        bunk.setText("You can't bunk any more classes");
 
-                    bunk.setTextColor(Color.GREEN);
-                    bunk.setText("You can leave "+class_bunks+" classes");
+                    }
+                    else {
+                        class_bunks = ((attendencePercentage - 75) * (total)) / 100;
+                        bunk.setTextColor(Color.GREEN);
+                        bunk.setText("You can leave "+class_bunks+" classes");
+                    }
                 }
+
 
             }
         });

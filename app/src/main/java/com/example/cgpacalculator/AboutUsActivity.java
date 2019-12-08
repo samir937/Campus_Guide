@@ -1,5 +1,6 @@
 package com.example.cgpacalculator;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -21,6 +22,11 @@ public class AboutUsActivity extends AppCompatActivity {
         fb=findViewById(R.id.fbButton);
         git=findViewById(R.id.gitButton);
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        actionBar.setTitle("About Us");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
 

@@ -4,7 +4,7 @@
     android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/appsec"
+    android:background="@drawable/doc_appointment"
     tools:context="com.example.HospitalGuide.AppointCheck">
 
     <TextView

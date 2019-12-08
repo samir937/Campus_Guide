@@ -43,17 +43,70 @@ public class Cgpa_Predictor extends AppCompatActivity {
             public void onClick(View v) {
 
 
+
+                if( currentCgpa.getText().toString().equals(""))
+                {
+                    currentCgpa.setError("Enter value");
+                }
+                else
+                {
+                    current_cgpa_value=Double.parseDouble(currentCgpa.getText().toString());
+                }
+
+                if(current_cgpa_value <0 && current_cgpa_value>10 )
+                {
+                    currentCgpa.setError("Invalid value");
+                }
+
+                if( expectedCgpa.getText().toString().equals(""))
+                {
+                    expectedCgpa.setError("Enter value");
+                }
+                else
+                {
+                    expected_cgpa_value=Double.parseDouble(expectedCgpa.getText().toString());
+                }
+
+                if(expected_cgpa_value<0 && expected_cgpa_value>10 )
+                {
+                    expectedCgpa.setError("Invalid value");
+                }
+
+                if( sem_left.getText().toString().equals(""))
+                {
+                    sem_left.setError("Enter value");
+                }
+                else
+                {
+                    sems=Integer.parseInt(sem_left.getText().toString());
+                }
+
+                if(sems<0 && sems>8)
+                {
+                    sem_left.setError("Invalid value");
+                }
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                         InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
-                current_cgpa_value=Double.parseDouble(currentCgpa.getText().toString());
-                expected_cgpa_value=Double.parseDouble(expectedCgpa.getText().toString());
-                sems=Integer.parseInt(sem_left.getText().toString());
-                total_cgpa=(current_cgpa_value*(8-sems));
-                required_tgpa=((expected_cgpa_value*8)-(total_cgpa))/2;
+                if(!expectedCgpa.getText().toString().equals("")&& !currentCgpa.getText().toString().equals("") && current_cgpa_value>0 && current_cgpa_value<=10 && expected_cgpa_value>0 && expected_cgpa_value<=10&&sems>=0 && sems<=8)
+                {
 
-                CgpaResult.setText("You wil have to maintain a minimum of %.2f "+required_tgpa+" in all your upcoming semesters.");
+                    total_cgpa=(current_cgpa_value*(8-sems));
+                    required_tgpa=((expected_cgpa_value*8)-(total_cgpa))/2;
+
+                    if(required_tgpa<=10)
+                    {
+                        CgpaResult.setTextColor(Color.GREEN);
+                        CgpaResult.setText("You wil have to maintain a minimum of  "+String.format("%.2f", required_tgpa) +" in all your upcoming semesters.");
+                    }
+                    else
+                    {
+                        CgpaResult.setTextColor(Color.RED);
+                        CgpaResult.setText("Not Possible");
+                    }
+
+                }
 
             }
         });
