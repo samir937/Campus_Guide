@@ -4,46 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightgray"
     tools:context=".ShowData">
 
-    <Spinner
+    <RelativeLayout
         android:id="@+id/spinner"
-        android:layout_width="145dp"
-        android:layout_height="38dp"
+        android:layout_width="189dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/spinner_background">
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:spinnerMode="dropdown" />
+
+    </RelativeLayout>
+    <!--<Spinner
+        android:id="@+id/spinner"
+        android:layout_width="157dp"
+        android:layout_height="41dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginBottom="9dp" />
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/custom_border"
+        android:spinnerMode="dropdown" />-->
+
 
     <Button
-        android:layout_width="67dp"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/spinner"
-        android:text="Show"
         android:id="@+id/show_data"
-        />
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:layout_toEndOf="@+id/spinner"
+        android:background="@drawable/custom_border"
+        android:backgroundTint="@color/lightpink"
+        android:text="Show"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
+        android:layout_marginStart="83dp"
         android:layout_marginTop="15dp"
         android:layout_toEndOf="@+id/spinner"
-        android:text="TGPA"
-        android:textSize="20dp" />
+        android:text="TGPA :"
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tgpaText"
         android:layout_width="92dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginRight="0dp"
         android:layout_toEndOf="@+id/tte"
         android:text="NaN"
-        android:textSize="20dp" />
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        android:textStyle="bold" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -57,17 +87,35 @@
         android:layout_marginBottom="9dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    >
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addSubjects"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="30dp"
-        android:id="@+id/addSubjects"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="30dp"
         android:src="@drawable/ic_add_black_24dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
+
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add More Subjects"
+        android:layout_below="@+id/addSubjects"
+        android:layout_marginEnd="10dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>
+
 
 
 </RelativeLayout>

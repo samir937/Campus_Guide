@@ -5,17 +5,29 @@
     android:orientation="vertical"
     tools:context="com.example.FoodStore.Cart">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cart_rv"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/cart_b1"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/cart_rv"
-        android:text="Continue Process" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cart_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/cart_b1"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cart_rv"
+                android:text="Continue Process" />
+
+        </RelativeLayout>
+    </ScrollView>
+
 
 </RelativeLayout>

@@ -3,15 +3,32 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="lightpink">#F72D71</color>
+    <color name="red">#F44336</color>
     <color name="black">#0A0303</color>
+    <color name="lightBlack">#2E2D2D</color>
     <color name="white">#ffffff</color>
     <color name="Blue">#2175F3</color>
+    <color name="lightblue">#F7289AF1</color>
     <color name="grey">#DBD9D9</color>
-    <color name="gen_white">#FFFFFF</color>
+    <color name="gen_white">#F5F4F4</color>
     <color name="yellow">#f2fe71</color>
+    <color name="navyBlue">#2A3c58</color>
     <color name="lightBlue">#0A76D6</color>
     <color name="darkgreen">#0097a7</color>
+    <color name="lightgreen">#77C41F</color>
     <color name="bg_login">#00bcd4</color>
+    <color name="lightgray">#E6E6E6</color>
     <color name="colorPrimar">#00008b</color>
     <color name="colorAccen">#FFFF00</color>
+    <color name="primaryDark">#292b3d</color>
+    <color name="graylight">#fafafa</color>
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
+    <color name="backcolor">#0E93FD</color>
+
+
+
+
+
 </resources>

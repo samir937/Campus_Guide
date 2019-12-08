@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gen_white"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/registration_text"
         android:layout_width="302dp"
-        android:layout_height="51dp"
-        android:hint="Select Type of Course:"
+        android:layout_height="61dp"
+        android:text="Select Type of Course "
         android:textSize="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:textStyle="bold"
+        android:textColor="@color/red"
+
         tools:layout_editor_absoluteX="6dp"
         tools:layout_editor_absoluteY="16dp" />
-    <Button
+    <!--<Button
         android:id="@+id/normal_course"
         android:layout_width="272dp"
         android:layout_height="72dp"
@@ -25,47 +30,152 @@
         android:text="Normal Course"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registration_text" />
+        app:layout_constraintTop_toBottomOf="@+id/registration_text" />-->
 
-    <Button
-        android:id="@+id/practical_course"
-        android:layout_width="272dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:text="Practical Course"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/normal_course" />
-
-    <Button
-        android:id="@+id/pe_course"
-        android:layout_width="272dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="9dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:text="Byod Course"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/practical_course" />
+        android:id="@+id/normal_course"
+        android:layout_below="@+id/registration_text"
+        android:layout_centerInParent="true"
 
-    <Button
-        android:id="@+id/four_practical"
-        android:layout_width="272dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:text="Four Practical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pe_course" />
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/card_background">
+
+            <TextView
+                android:id="@+id/normal1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:fontFamily="serif"
+                android:text="Normal Course"
+                android:textColor="@color/white"
+                android:textSize="21dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/normal1"
+
+                android:text="2 CA'S MTE ETE"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:fontFamily="serif"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="9dp"
+        android:id="@+id/practical_course"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/normal_course"
+        android:layout_centerInParent="true"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/card_background">
+
+            <TextView
+                android:id="@+id/practical1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:fontFamily="serif"
+                android:text="Practical Course"
+                android:textColor="@color/white"
+                android:textSize="21dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/practical1"
+
+                android:text="3 LABS ETP"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:fontFamily="serif"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="9dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/byod_course"
+        android:layout_below="@+id/practical_course"
+        android:layout_centerInParent="true"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/card_background">
+
+            <TextView
+                android:id="@+id/byod1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:fontFamily="serif"
+                android:text="BYOD Course"
+                android:textColor="@color/white"
+                android:textSize="21dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/byod1"
+                android:text="2 CA'S  ETP"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:fontFamily="serif"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

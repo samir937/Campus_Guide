@@ -10,10 +10,16 @@ import com.razorpay.PaymentResultListener;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import android.app.Activity;
 
-public class Payment implements PaymentResultListener
-{
-    String uname,uaddress,uphone;
+import com.razorpay.Checkout;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+public class Payment {
+    String uname, uaddress, uphone;
+    int price = 0;
 
     public Payment(String uname, String uaddress, String uphone) {
         this.uname = uname;
@@ -21,54 +27,32 @@ public class Payment implements PaymentResultListener
         this.uphone = uphone;
     }
 
-    public void startPayment(Activity av)
-    {
-        PlaceOrder();
+
+    public void startPayment(Activity av) {
+        calculatePrice();
+        FoodHomeActivity.uname = uname;
+        FoodHomeActivity.uaddress = uaddress;
+        FoodHomeActivity.uphone = uphone;
         Checkout checkout = new Checkout();
         final Activity activity = av;
-        try
-        {
+        try {
             JSONObject options = new JSONObject();
-            options.put("name", "Sachin");
+            options.put("name", uname);
             options.put("description", "Testing");
             options.put("currency", "INR");
-            /*
-              Amount is always passed in currency subunits
-              Eg: "500" = INR 5.00
-            */
-            options.put("amount", "1000");
+            options.put("amount", price * 100 + "");
             checkout.open(activity, options);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.print("Error");
         }
     }
 
-    @Override
-    public void onPaymentSuccess(String s)
-    {
-
-    }
-
-    @Override
-    public void onPaymentError(int i, String s)
-    {
-
-    }
-
-    public void PlaceOrder()
-    {
-        DatabaseReference data_ref= FirebaseDatabase.getInstance().getReference("Orders");
-        ArrayList<ModelOrder> arr=SingletonCart.getInstance().arr;
-        for(int i=0;i<arr.size();i++)
-        {
-            ModelOrder ob=arr.get(i);
-            ob.setUname(uname);
-            ob.setUphone(uphone);
-            ob.setUaddress(uaddress);
-            String uploadid=data_ref.push().getKey();
-            data_ref.child(uploadid).setValue(ob);
+    public void calculatePrice() {
+        ArrayList<ModelOrder> arr = SingletonCart.getInstance().arr;
+        for (int i = 0; i < arr.size(); i++) {
+            int q = Integer.parseInt(arr.get(i).getItem_quantity());
+            int p = Integer.parseInt(arr.get(i).getItem_price());
+            price = price + p * q;
         }
     }
 }

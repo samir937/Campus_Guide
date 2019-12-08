@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/food_logo"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:gravity="center_vertical|center_horizontal"
+    tools:context="com.example.FoodStore.FoodActivity">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:layout_gravity="center_horizontal"
         android:text="Continue"
         android:id="@+id/main_continue"/>
@@ -20,14 +20,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OR"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_gravity="center_horizontal"
-        android:textStyle="italic|bold"/>
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textStyle="italic|bold"
         android:text="Select shop"
         android:id="@+id/main_shopname"/>
 

@@ -1,5 +1,4 @@
 package com.example.FoodStore;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,10 @@ import com.example.cgpacalculator.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MenuAdapter extends BaseAdapter
 {
@@ -60,10 +63,10 @@ public class MenuAdapter extends BaseAdapter
             {
 
                 ModelOrder ob1=new ModelOrder(data.getItem_name(),data.getItem_price()
-                ,"0",data.getItem_shop(),data.getItem_url(),data.getItem_owner(),"0","0","0");
+                        ,"0",data.getItem_shop(),data.getItem_url(),data.getItem_owner(),"0","0","0");
                 SingletonCart.getInstance().arr.add(ob1);
 
-                Toast.makeText(v.getContext(),"Successfully Added", Toast.LENGTH_LONG).show();
+                Toast.makeText(v.getContext(),"Successfully Added",Toast.LENGTH_LONG).show();
 
             }
         });

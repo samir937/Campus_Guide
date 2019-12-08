@@ -3,18 +3,22 @@ package com.example.cgpacalculator;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Bunk_Predictor extends AppCompatActivity {
 
     EditText class_attended,total_classes;
+    TextView bunk;
     int attendencePercentage,class_bunks;
     Button predictButton;
     int attended,total;
@@ -25,29 +29,40 @@ public class Bunk_Predictor extends AppCompatActivity {
         class_attended=findViewById(R.id.attended_class);
         total_classes=findViewById(R.id.total_classes);
         predictButton=findViewById(R.id.predict);
+        bunk=findViewById(R.id.Bunkresult);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         actionBar.setTitle("Bunk Predictor");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0A76D6")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
         predictButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.RESULT_UNCHANGED_SHOWN);
+
                 attended=Integer.parseInt(class_attended.getText().toString());
                 total=Integer.parseInt(total_classes.getText().toString());
 
                 attendencePercentage=  ((attended*100)/total);
 
-                if(attendencePercentage<75)
+                if(attendencePercentage<=75)
                 {
-                    Toast.makeText(Bunk_Predictor.this,"You can't bunk any more classes",Toast.LENGTH_SHORT).show();
+                    bunk.setTextColor(Color.RED);
+                    bunk.setText("You can't bunk any more classes");
+
                 }
                 else {
                     class_bunks = ((attendencePercentage - 75) * (total)) / 100;
-                    Toast.makeText(Bunk_Predictor.this,"You can leave "+class_bunks+" classes",Toast.LENGTH_SHORT).show();
+
+                    bunk.setTextColor(Color.GREEN);
+                    bunk.setText("You can leave "+class_bunks+" classes");
                 }
 
             }

@@ -10,14 +10,14 @@
         android:id="@+id/e_r_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter Required Details"
+        android:text="Enter Required Details"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
         android:textStyle="bold"
         android:textSize="21dp"
-        android:textColor="@color/black" />
+        android:textColor="@color/red" />
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -99,12 +99,27 @@
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="8dp"
         android:text="PREDICT"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@color/navyBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="445dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Cgparesult"
+        android:textColor="@color/red"
+        android:layout_below="@+id/Predict"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
 
 
 

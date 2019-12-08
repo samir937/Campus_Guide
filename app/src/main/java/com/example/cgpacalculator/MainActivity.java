@@ -2,6 +2,7 @@ package com.example.cgpacalculator;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button normal_course_btn,practical_course_btn,byod_course_btn,four_practical_btn;
+    CardView normal_course_btn,practical_course_btn,byod_course_btn,pe_practical_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         practical_course_btn=findViewById(R.id.practical_course);
         practical_course_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        byod_course_btn=findViewById(R.id.pe_course);
+
+        byod_course_btn=findViewById(R.id.byod_course);
         byod_course_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,14 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        four_practical_btn=findViewById(R.id.four_practical);
-        four_practical_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Cgpa_Predictor.class);
-                startActivity(i);
-            }
-        });
+
+
 
 
         ActionBar actionBar = getSupportActionBar();
@@ -58,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         actionBar.setTitle("GPA CALCULATOR");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0A76D6")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
 
     }

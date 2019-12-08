@@ -27,10 +27,10 @@ import static java.lang.Math.ceil;
 
 public class Byod_Course extends AppCompatActivity {
 
-    EditText ca1_marks,ca2_marks,attendence_perc,credit,mte_marks,ete_marks,course_code;
-    Button submit,showbutton;
-    Double ca_weightage,mte_weightage,ete_weightage,total_marks,tgpa,ca,mte,ete,att;
-    int marks_ca1,marks_ca2,marks_mte,marks_ete,attendence_percentage,course_credit,attendence_weightage,gpa;
+    EditText ca1_marks,ca2_marks,attendence_perc,credit,ete_marks,course_code;
+    Button submit;
+    Double ca_weightage,mte_weightage,ete_weightage,total_marks,ca,mte,ete;
+    int marks_ca1,marks_ca2,marks_ete,attendence_percentage,course_credit,attendence_weightage,gpa;
     String Grade,semester,course;
     Spinner semspin;
     RelativeLayout relativeLayout;
@@ -48,15 +48,8 @@ public class Byod_Course extends AppCompatActivity {
         }
 
         actionBar.setTitle("TGPA CALCULATOR");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0A76D6")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
-        showbutton=findViewById(R.id.show);
-        showbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Byod_Course.this,ShowData.class));
-            }
-        });
 
         course_code=findViewById(R.id.course_code);
         attendence_perc=findViewById(R.id.Attendence);
@@ -64,7 +57,7 @@ public class Byod_Course extends AppCompatActivity {
         ca1_marks=findViewById(R.id.ca1);
         ca2_marks=findViewById(R.id.ca2);
         ete_marks=findViewById(R.id.ete);
-        semspin=findViewById(R.id.semList);
+        semspin=findViewById(R.id.semList1);
 
         relativeLayout=findViewById(R.id.Layout_normal_course);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -156,128 +149,140 @@ public class Byod_Course extends AppCompatActivity {
                     credit.setError("Enter a valid course credit");
                 }
 
-                ca_weightage = ((0.75 * marks_ca1) + (0.75 * marks_ca2));
-                mte_weightage = 0.0d;
-                ete_weightage = (0.50 * marks_ete);
-
-                if (attendence_percentage >= 90)
-                    attendence_weightage = 5;
-                else if (attendence_percentage >= 85)
-                    attendence_weightage = 4;
-                else if (attendence_percentage >= 80)
-                    attendence_weightage = 3;
-                else if (attendence_percentage >= 75)
-                    attendence_weightage = 2;
-                else
-                    attendence_weightage = 0;
-
-
-                ca=Math.round(ca_weightage * 100.0) / 100.0;
-                mte=Math.round(mte_weightage * 100.0) / 100.0;
-                ete=Math.round(ete_weightage * 100.0) / 100.0;
-                total_marks = ca + ete + mte + attendence_weightage;
-
-                total_marks=Math.round(total_marks * 100.0) / 100.0;
-
-                if (total_marks > 85)
-                    Grade = "O";
-                else if (total_marks > 75)
-                    Grade = "A+";
-                else if (total_marks > 70)
-                    Grade = "A";
-                else if (total_marks > 65)
-                    Grade = "B+";
-                else if (total_marks > 58)
-                    Grade = "B";
-                else if (total_marks > 50)
-                    Grade = "C+";
-                else if (total_marks > 45)
-                    Grade = "C";
-                else if (total_marks > 40)
-                    Grade = "D";
-                else
-                    Grade = "E";
-
-
-                if (Grade.equals("O"))
-                    gpa = 10;
-                else if (Grade.equals("A+"))
-                    gpa = 9;
-                else if (Grade.equals("A"))
-                    gpa = 8;
-                else if (Grade.equals("B+"))
-                    gpa = 7;
-                else if (Grade.equals("B"))
-                    gpa = 6;
-                else if (Grade.equals("C+"))
-                    gpa = 5;
-                else if (Grade.equals("C"))
-                    gpa = 4;
-                else if (Grade.equals("D"))
-                    gpa = 3;
-                else
-                    gpa = 0;
-
-
-
-                semester=semspin.getSelectedItem().toString().trim();
-                userid= FirebaseAuth.getInstance().getUid();
-                mref= FirebaseDatabase.getInstance().getReference("Users").child(userid).child("Semesters").child(semester);
-
-                if(semester.equals("Semester1"))
+                if(!course_code.getText().toString().equals("")&& !ca1_marks.getText().toString().equals("")&& !ca2_marks.getText().toString().equals("") && !ete_marks.getText().toString().equals("") &&!attendence_perc.getText().toString().equals("")&&!credit.getText().toString().equals(""))
                 {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    ca_weightage = ((0.75 * marks_ca1) + (0.75 * marks_ca2));
+                    mte_weightage = 0.0d;
+                    ete_weightage = (0.50 * marks_ete);
 
-                }
-                else if(semester.equals("Semester2"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    if (attendence_percentage >= 90)
+                        attendence_weightage = 5;
+                    else if (attendence_percentage >= 85)
+                        attendence_weightage = 4;
+                    else if (attendence_percentage >= 80)
+                        attendence_weightage = 3;
+                    else if (attendence_percentage >= 75)
+                        attendence_weightage = 2;
+                    else
+                        attendence_weightage = 0;
 
-                }
-                else if(semester.equals("Semester3"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
-                }
-                else if(semester.equals("Semester4"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    ca=Math.round(ca_weightage * 100.0) / 100.0;
+                    mte=Math.round(mte_weightage * 100.0) / 100.0;
+                    ete=Math.round(ete_weightage * 100.0) / 100.0;
+                    total_marks = ca + ete + mte + attendence_weightage;
 
-                }
-                else if(semester.equals("Semester5"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    total_marks=Math.round(total_marks * 100.0) / 100.0;
 
-                }
-                else if(semester.equals("Semester6"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    if (total_marks > 85)
+                        Grade = "O";
+                    else if (total_marks > 75)
+                        Grade = "A+";
+                    else if (total_marks > 70)
+                        Grade = "A";
+                    else if (total_marks > 65)
+                        Grade = "B+";
+                    else if (total_marks > 58)
+                        Grade = "B";
+                    else if (total_marks > 50)
+                        Grade = "C+";
+                    else if (total_marks > 45)
+                        Grade = "C";
+                    else if (total_marks > 40)
+                        Grade = "D";
+                    else
+                        Grade = "E";
 
-                }
-                else if(semester.equals("Semester7"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
 
-                }
-                else if(semester.equals("Semester8"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    if (Grade.equals("O"))
+                        gpa = 10;
+                    else if (Grade.equals("A+"))
+                        gpa = 9;
+                    else if (Grade.equals("A"))
+                        gpa = 8;
+                    else if (Grade.equals("B+"))
+                        gpa = 7;
+                    else if (Grade.equals("B"))
+                        gpa = 6;
+                    else if (Grade.equals("C+"))
+                        gpa = 5;
+                    else if (Grade.equals("C"))
+                        gpa = 4;
+                    else if (Grade.equals("D"))
+                        gpa = 3;
+                    else
+                        gpa = 0;
+
+
+
+                    semester=semspin.getSelectedItem().toString().trim();
+                    userid= FirebaseAuth.getInstance().getUid();
+                    mref= FirebaseDatabase.getInstance().getReference("Users").child(userid).child("Semesters").child(semester);
+
+                    if(semester.equals("Semester1"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
+                    else if(semester.equals("Semester2"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
+                    else if(semester.equals("Semester3"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
+                    else if(semester.equals("Semester4"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
+                    else if(semester.equals("Semester5"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
+                    else if(semester.equals("Semester6"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
+                    else if(semester.equals("Semester7"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
+                    else if(semester.equals("Semester8"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Byod_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Byod_Course.this,ShowData.class));
+
+                    }
 
                 }
 

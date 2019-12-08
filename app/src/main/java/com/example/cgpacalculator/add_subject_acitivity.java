@@ -11,6 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class add_subject_acitivity extends AppCompatActivity {
     FloatingActionButton add_subject;
@@ -26,7 +32,7 @@ public class add_subject_acitivity extends AppCompatActivity {
         }
 
         actionBar.setTitle("TGPA CALCULATOR");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0A76D6")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
         add_subject.setOnClickListener(new View.OnClickListener() {
             @Override

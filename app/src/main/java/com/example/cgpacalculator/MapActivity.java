@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -33,8 +34,9 @@ public class MapActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        webView.loadData("<iframe src=\"https://www.google.com/maps/embed?pb=!4v1573310444744!6m8!1m7!1s7Fo4OZfjIDQKvncUvTLw-A!2m2!1d31.25602209993804!2d75.70599918724794!3f347.72106379168514!4f-2.5479348524138032!5f0.7820865974627469\" width=\"102%\" height=\"101%\" margin=\"0\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe>", "text/html",
+        actionBar.setTitle("Campus Tour");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
+        webView.loadData("<iframe src=\"https://www.google.com/maps/embed?pb=!4v1574445936599!6m8!1m7!1sPPeXkt5NPYNTeQijNbwYCg!2m2!1d31.2607325620669!2d75.70697036279117!3f230.91!4f-4.090000000000003!5f0.4000000000000002\" width=\"101%\" height=\"101%\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe>", "text/html",
                 "utf-8");
 
 

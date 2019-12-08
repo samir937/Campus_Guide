@@ -35,7 +35,7 @@ import java.util.UUID;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword,inputFullName,inputRegistration;
+    private EditText inputEmail, inputPassword,inputFullName,inputPhoneNumber;
     private Button btnSignIn, btnSignUp;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
@@ -45,7 +45,7 @@ public class SignupActivity extends AppCompatActivity {
     FirebaseStorage storage;
     DatabaseReference reference;
     StorageReference storageReference;
-    String imageUri,name,email,password,universityid;
+    String imageUri,name,email,password,phoneNumber;
     boolean complete=false;
     ProgressDialog progressDialog;
 
@@ -61,7 +61,7 @@ public class SignupActivity extends AppCompatActivity {
         inputEmail = findViewById(R.id.editTextEmail);
         inputPassword = findViewById(R.id.editTextPassword);
         inputFullName=findViewById(R.id.editTextName);
-        inputRegistration=findViewById(R.id.editTextregistration);
+        inputPhoneNumber=findViewById(R.id.editTextPhoneNumber);
         progressBar =  findViewById(R.id.progressBar);
         profileImage=findViewById(R.id.imageViewUser);
 
@@ -94,20 +94,21 @@ public class SignupActivity extends AppCompatActivity {
 
                 progressDialog = new ProgressDialog(SignupActivity.this);
                 progressDialog.setTitle("Uploading...");
+                progressDialog.setMessage("Please Wait......");
                 progressDialog.setCancelable(false);
                 progressDialog.show();
 
                 name = inputFullName.getText().toString().trim();
                 email = inputEmail.getText().toString().trim();
                 password = inputPassword.getText().toString().trim();
-                universityid = inputRegistration.getText().toString().trim();
+                phoneNumber = inputPhoneNumber.getText().toString().trim();
 
                 if(TextUtils.isEmpty(name)){
                     inputFullName.setError("Enter Full Name!");
                     return;
                 }
-                if(TextUtils.isEmpty(universityid)){
-                   inputRegistration.setError("Enter Registration Number");
+                if(TextUtils.isEmpty(phoneNumber)){
+                    inputPhoneNumber.setError("Enter Registration Number");
                     return;
                 }
 
@@ -126,22 +127,27 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
-                auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
-                                if (!task.isSuccessful()) {
-                                    Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_LONG).show();
-                                } else {
+                if(!name.equals("")&& !email.equals("")&&!password.equals("")&&!phoneNumber.equals(""))
+                {
 
-                                    uploadImage();
+                    progressBar.setVisibility(View.VISIBLE);
+                    auth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
+                                                Toast.LENGTH_LONG).show();
+                                    } else {
+
+                                        uploadImage();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
+
 
 
 
@@ -191,7 +197,7 @@ public class SignupActivity extends AppCompatActivity {
                                     newuser.setName(name);
                                     newuser.setEmail(email);
                                     newuser.setPassword(password);
-                                    newuser.setUniversityid(universityid);
+                                    newuser.setPhoneNumber(phoneNumber);
                                     newuser.setUri(imageUri);
                                     reference.child("Users").child(uid).child("User Details").setValue(newuser);
 

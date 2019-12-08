@@ -5,42 +5,36 @@
     android:id="@+id/relativeLayout"
     android:layout_margin="10dp"
     app:cardElevation="5dp"
-    app:cardCornerRadius="5dp"
+    app:cardCornerRadius="8dp"
     android:layout_width="match_parent"
     android:layout_height="245dp"
     android:layout_marginStart="5dp"
     android:layout_marginEnd="5dp"
-    android:background="@drawable/border"
+
     >
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/ic_book_black_24dp" />
-
-    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="70dp">
+        android:background="@drawable/border">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_book_black_24dp"/>
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="9dp"
             android:gravity="center_vertical"
-            android:hint="COURSE CODE"
+            android:text="COURSE CODE"
+            android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -50,11 +44,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="9dp"
+            android:layout_marginLeft="68dp"
             android:gravity="center_vertical"
             android:text="CA :"
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -62,12 +58,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
-
             android:layout_marginTop="15dp"
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/registration_text"
             android:gravity="center_vertical"
-            android:hint="CA MARKS"
+            android:text="CA MARKS"
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -75,11 +71,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/registration_text"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
             android:gravity="center_vertical"
-            android:hint="MTE"
+            android:text="MTE"
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -92,7 +89,8 @@
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/textView4"
             android:gravity="center_vertical"
-            android:hint="MTE Marks : "
+            android:text="MTE Marks "
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -100,11 +98,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView4"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
             android:gravity="center_vertical"
-            android:hint="ETE : "
+            android:text="ETE : "
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -116,7 +115,8 @@
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/textView6"
             android:gravity="center_vertical"
-            android:hint="ETE MARKS"
+            android:text="ETE MARKS"
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -124,11 +124,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView6"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
             android:gravity="center_vertical"
-            android:hint="Attendence : "
+            android:text="Attendence : "
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -141,7 +142,8 @@
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/textView8"
             android:gravity="center_vertical"
-            android:hint="marks"
+            android:text="marks"
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
 
@@ -150,11 +152,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView8"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
             android:gravity="center_vertical"
-            android:hint="Total Marks"
+            android:text="Total Marks"
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
 
@@ -168,7 +171,8 @@
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/textView10"
             android:gravity="center_vertical"
-            android:hint="total"
+            android:text="total"
+            android:textColor="@color/white"
             android:textSize="17dp" />
 
         <TextView
@@ -176,11 +180,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/divider2"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
             android:gravity="center_vertical"
-            android:hint="EXPECTED GRADE : "
+            android:text="EXPECTED GRADE : "
+            android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -193,7 +198,8 @@
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/textView12"
             android:gravity="center_vertical"
-            android:hint="A+"
+            android:text="A+"
+            android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -205,8 +211,9 @@
             android:layout_below="@+id/textView10"
             android:layout_marginTop="10dp"
             android:layout_marginRight="60dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginBottom="10dp"
-            android:background="?android:attr/listDivider" />
+            android:background="@color/white" />
 
 
     </RelativeLayout>

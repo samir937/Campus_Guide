@@ -53,7 +53,7 @@ public class ShowData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_data);
         subjects = new ArrayList<SubjectDetails>();
-        spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner1);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, sems);
         spinner.setAdapter(arrayAdapter);
         total = findViewById(R.id.tgpaText);
@@ -66,7 +66,7 @@ public class ShowData extends AppCompatActivity {
         Toast.makeText(ShowData.this,"Choose a Semester",Toast.LENGTH_SHORT).show();
 
         actionBar.setTitle("TGPA CALCULATOR");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0A76D6")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
         addButton=findViewById(R.id.addSubjects);
         addButton.setOnClickListener(new View.OnClickListener() {

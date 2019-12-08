@@ -19,5 +19,15 @@
     <string name="forgot_password_msg">forgot password message</string>
     <string name="title_activity_byod_course">Byod_course</string>
 
+    <string-array name="array_facts">
+        <item>OPDs(Out Patient Department)</item>
+        <item>OPD charges</item>
+        <item>Amnulance</item>
+        <item>Emergency</item>
+        <item>Patient Addmission</item>
+        <item>Timing of Chamist Shop</item>
+
+    </string-array>
+
 
 </resources>

@@ -12,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".Profile_Activity"></activity>
+        <activity android:name=".ChatWithUs" />
+        <activity android:name=".AboutUsActivity" />
         <activity android:name="com.example.FoodStore.FoodHomeActivity" />
-        <activity android:name="com.example.HospitalGuide.Main2Activity" />
-        <activity android:name="com.example.HospitalGuide.HospitalActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".splashActivity">
             <intent-filter>
@@ -37,6 +37,29 @@
         <activity android:name=".Practical_Course" />
         <activity android:name=".Normal_Course" />
         <activity android:name=".MainActivity" />
+
+        <activity android:name="com.example.HospitalGuide.FactDetail"></activity>
+        <activity android:name="com.example.HospitalGuide.Facilities" />
+        <activity android:name="com.example.HospitalGuide.AppointCheck" />
+        <activity android:name="com.example.HospitalGuide.Appointments" />
+        <activity android:name="com.example.HospitalGuide.Main2ActivityDocs" />
+        <activity android:name="com.example.HospitalGuide.HospitalHome">
+        </activity>
+
+
+        <activity android:name="com.example.GymGuide.Diet_Activity"></activity>
+        <activity android:name="com.example.GymGuide.Membership_Activity"></activity>
+        <activity android:name="com.example.GymGuide.Single_Protein_Activity" />
+        <activity android:name="com.example.GymGuide.Leg_Activity" />
+        <activity android:name="com.example.GymGuide.Shoulder_Activity" />
+        <activity android:name="com.example.GymGuide.Chest_Activity" />
+        <activity android:name="com.example.GymGuide.Abs_Activity" />
+        <activity android:name="com.example.GymGuide.Arms_Activity" />
+        <activity android:name="com.example.GymGuide.CaloryMeter_Activity" />
+        <activity android:name="com.example.GymGuide.User_Activity" />
+        <activity android:name="com.example.GymGuide.Protien_Activity" />
+        <activity android:name="com.example.GymGuide.GymActivtiy"/>
+        <activity android:name="com.example.GymGuide.Workout_Activity" />
 
         <meta-data
             android:name="com.razorpay.ApiKey"

@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/darkgreen"
+        android:background="@color/navyBlue"
         android:gravity="center"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
@@ -18,20 +18,30 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageViewUser"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
             android:layout_marginTop="30dp"
-            android:src="@drawable/icon"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FFFFFF"/>
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/profileimage"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Image"
+            android:layout_marginTop="-10dp"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginEnd="10dp"
+            android:textColorHint="@color/white">
 
             <EditText
                 android:id="@+id/editTextName"
@@ -43,14 +53,15 @@
                 android:inputType="textAutoComplete"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginEnd="10dp"
+            android:textColorHint="@color/white">
 
             <EditText
                 android:id="@+id/editTextEmail"
@@ -60,14 +71,15 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginEnd="10dp"
+            android:textColorHint="@color/white">
 
             <EditText
                 android:id="@+id/editTextPassword"
@@ -79,64 +91,51 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginEnd="10dp"
+            android:textColorHint="@color/white">
 
             <EditText
-                android:id="@+id/editTextregistration"
+                android:id="@+id/editTextPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="true"
-                android:hint="@string/hint_bloodGroup"
+                android:hint="Phone Number"
                 android:imeOptions="actionUnspecified"
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/sign_up_button"
-            style="?android:textAppearanceSmall"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
-            android:background="@color/yellow"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:background="@color/colorAccent"
             android:text="Register"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_reset_password"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@null"
-            android:text="@string/btn_forgot_password"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white" />
-
-        <!-- Link to Login Screen -->
 
         <Button
             android:id="@+id/sign_in_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:background="@null"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="15dip"
             android:layout_marginEnd="10dp"
-            android:text="@string/btn_link_to_login"
+            android:background="@null"
+            android:text="Login"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15sp" />

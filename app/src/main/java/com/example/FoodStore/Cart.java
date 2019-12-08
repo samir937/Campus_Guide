@@ -1,7 +1,13 @@
 package com.example.FoodStore;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +19,11 @@ import com.razorpay.Checkout;
 
 import java.util.ArrayList;
 
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-public class Cart extends Fragment implements View.OnClickListener
-{
+public class Cart extends Fragment implements View.OnClickListener{
 
     RecyclerView rv1;
     CartAdapter adapter;
     ArrayList<ModelOrder> item;
-
-
     Button b1;
 
     public Cart() {}
@@ -69,19 +68,48 @@ public class Cart extends Fragment implements View.OnClickListener
     {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         View v=getLayoutInflater().inflate(R.layout.information,null);
-        alert.setTitle("Delievery Information");
         final EditText name=v.findViewById(R.id.inf_e1);
         final EditText phone=v.findViewById(R.id.inf_e2);
         final EditText address=v.findViewById(R.id.inf_e3);
         final Button b1=v.findViewById(R.id.inf_b1);
+
+        alert.setView(v);
+        final AlertDialog show = alert.show();
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Payment p=new Payment(name.getText().toString(),phone.getText().toString(),address.getText().toString());
-                p.startPayment(getActivity());
+            public void onClick(View v)
+            {
+                if(name.getText().toString().isEmpty())
+                    name.setError("Please fill your name");
+                else if(checkNumeric(phone.getText().toString())==false)
+                    phone.setError("Please fill your phone no");
+                else if(address.getText().toString().isEmpty())
+                    address.setError("Please fill your address");
+                else {
+                    Payment p = new Payment(name.getText().toString(), phone.getText().toString(), address.getText().toString());
+                    p.startPayment(getActivity());
+                    show.dismiss();
+                }
             }
         });
-        alert.setView(v);
-        alert.show();
+
+    }
+
+    public boolean checkNumeric(String s)
+    {
+        boolean ans=true;
+        try
+        {
+            Long.parseLong(s);
+        }
+        catch (NumberFormatException e)
+        {
+            ans=false;
+        }
+        if(s.length()!=10)
+            ans=false;
+
+        return ans;
     }
 }

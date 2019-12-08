@@ -4,7 +4,7 @@ class UserPC {
     String name;
     String email;
     String password;
-    String universityid;
+    String phoneNumber;
     String uri;
 
     public UserPC() {
@@ -34,12 +34,12 @@ class UserPC {
         this.password = password;
     }
 
-    public String getUniversityid() {
-        return universityid;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setUniversityid(String universityid) {
-        this.universityid = universityid;
+    public void setPhoneNumber(String universityid) {
+        this.phoneNumber = universityid;
     }
 
     public String getUri() {

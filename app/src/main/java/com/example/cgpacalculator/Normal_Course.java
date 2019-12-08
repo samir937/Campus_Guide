@@ -52,15 +52,8 @@ public class Normal_Course extends AppCompatActivity {
         }
 
         actionBar.setTitle("TGPA CALCULATOR");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0A76D6")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2A3c58")));
 
-        showbutton=findViewById(R.id.show);
-        showbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Normal_Course.this,ShowData.class));
-            }
-        });
 
         course_code=findViewById(R.id.course_code);
         attendence_perc=findViewById(R.id.Attendence);
@@ -69,7 +62,7 @@ public class Normal_Course extends AppCompatActivity {
         ca2_marks=findViewById(R.id.ca2);
         mte_marks=findViewById(R.id.mte);
         ete_marks=findViewById(R.id.ete);
-        semspin=findViewById(R.id.semList);
+        semspin=findViewById(R.id.semList1);
 
         relativeLayout=findViewById(R.id.Layout_normal_course);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -172,7 +165,11 @@ public class Normal_Course extends AppCompatActivity {
                     credit.setError("Enter a valid course credit");
                 }
 
-                ca_weightage = ((0.416 * marks_ca1) + (0.416 * marks_ca2));
+                if(!course_code.getText().toString().equals("")&& !ca1_marks.getText().toString().equals("")&& marks_ca1<30 && marks_ca2<30
+                        && !ca2_marks.getText().toString().equals("") && !mte_marks.getText().toString().equals("")&& marks_mte<40 && !ete_marks.getText().toString().equals("")&& marks_ete<70 && !attendence_perc.getText().toString().equals("")&& attendence_percentage<100&&!credit.getText().toString().equals("")&& course_credit>1)
+                {
+
+                    ca_weightage = ((0.416 * marks_ca1) + (0.416 * marks_ca2));
                     mte_weightage = ceil(marks_mte / 2);
                     ete_weightage = (0.714 * marks_ete);
 
@@ -236,64 +233,74 @@ public class Normal_Course extends AppCompatActivity {
 
 
 
-                semester=semspin.getSelectedItem().toString().trim();
-                userid= FirebaseAuth.getInstance().getUid();
-                mref= FirebaseDatabase.getInstance().getReference("Users").child(userid).child("Semesters").child(semester);
+                    semester=semspin.getSelectedItem().toString().trim();
+                    userid= FirebaseAuth.getInstance().getUid();
+                    mref= FirebaseDatabase.getInstance().getReference("Users").child(userid).child("Semesters").child(semester);
 
-                if(semester.equals("Semester1"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    if(semester.equals("Semester1"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
 
-                }
-                else if(semester.equals("Semester2"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(semester.equals("Semester2"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
 
-                }
-                else if(semester.equals("Semester3"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(semester.equals("Semester3"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
 
-                }
-                else if(semester.equals("Semester4"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(semester.equals("Semester4"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
 
-                }
-                else if(semester.equals("Semester5"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(semester.equals("Semester5"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
 
-                }
-                else if(semester.equals("Semester6"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(semester.equals("Semester6"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
 
-                }
-                else if(semester.equals("Semester7"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(semester.equals("Semester7"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
 
-                }
-                else if(semester.equals("Semester8"))
-                {
-                    SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
-                    mref.child("subjects").push().setValue(subjectDetails);
-                    Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(semester.equals("Semester8"))
+                    {
+                        SubjectDetails subjectDetails=new SubjectDetails(course,attendence_weightage,course_credit,ca,mte,ete,total_marks,Grade,gpa);
+                        mref.child("subjects").push().setValue(subjectDetails);
+                        Toast.makeText(Normal_Course.this,"Data inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Normal_Course.this,ShowData.class));
+
+                    }
 
                 }
 

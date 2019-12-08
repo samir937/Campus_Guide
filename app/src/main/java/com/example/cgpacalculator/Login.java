@@ -35,9 +35,6 @@ public class Login extends AppCompatActivity {
    // private Button btnSignup, btnLogin, btnReset;
 
 
-    public Login(Context context) {
-    }
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +49,17 @@ public class Login extends AppCompatActivity {
         relativeLayout=findViewById(R.id.login_layout);
 
 
+
+
         getSupportActionBar().hide();
 
 
         auth = FirebaseAuth.getInstance();
 
+        if(auth.getCurrentUser()!=null) {
+            finish();
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        }
 
 
         register_text.setOnClickListener(new View.OnClickListener() {
@@ -103,38 +106,25 @@ public class Login extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
+                auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                String s=userlogin(email,password);
-                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                                progressBar.setVisibility(View.GONE);
+                                if (task.isSuccessful())
+                                {
+                                    flag=1;
+                                    Intent intent = new Intent(Login.this, HomeActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        });
 
             }
         });
     }
-
-    public String userlogin(String email,String pass)
-    {
-        auth.signInWithEmailAndPassword(email, pass)
-                .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        progressBar.setVisibility(View.GONE);
-                        if (task.isSuccessful())
-                        {
-                            flag=1;
-                            Intent intent = new Intent(Login.this, HomeActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    }
-                });
-
-        if(flag==1)
-            return "Login was successful";
-        else
-            return "Wrong Credentials";
-    }
-
 
 }
 
