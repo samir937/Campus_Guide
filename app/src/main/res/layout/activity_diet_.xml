@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#3707B489"
+    tools:context="com.example.GymGuide.Diet_Activity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#AA26B117">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:id="@+id/diet_image"
+        android:src="@drawable/dietmain"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#AA26B117">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:id="@+id/diet_image2"
+            android:src="@drawable/dietplan1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

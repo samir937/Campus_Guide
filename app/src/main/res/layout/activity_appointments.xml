@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/doc_appointment"
+    tools:context="com.example.HospitalGuide.Appointments">
+
+    <TextView
+        android:text="Doc.Type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="51dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="59dp"
+        android:id="@+id/txtname"
+        android:textStyle="bold|italic"
+        android:textSize="22sp" />
+
+    <TextView
+        android:text="Student Reg.No.::"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtname"
+        android:layout_alignLeft="@+id/txtname"
+        android:layout_alignStart="@+id/txtname"
+        android:layout_marginTop="56dp"
+        android:id="@+id/txtreg"
+        android:textStyle="bold|italic"
+        android:textSize="22sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="8"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/txtreg"
+        android:layout_toEndOf="@+id/txtreg"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="48dp"
+        android:id="@+id/editName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editName"
+        android:layout_alignLeft="@+id/editName"
+        android:layout_alignStart="@+id/editName"
+        android:layout_marginTop="35dp"
+        android:id="@+id/editRegno" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editRegno"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="81dp"
+        android:background="@color/navyBlue"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:onClick="save"
+        android:text="Make Appointment" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignEnd="@+id/editName"
+        android:layout_alignRight="@+id/editName"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginRight="129dp"
+        android:background="@color/navyBlue"
+        android:onClick="next"
+        android:text="Check Appointment"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+</RelativeLayout>

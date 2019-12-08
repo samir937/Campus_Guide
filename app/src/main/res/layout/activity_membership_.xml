@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:fillViewport="false">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#3707B489"
+    tools:context=".Membership_Activity">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#AA26B117">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:id="@+id/gym_member_option"
+            android:src="@drawable/membership_image5"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+    </androidx.cardview.widget.CardView>
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="260dp"
+    app:cardBackgroundColor="#AA26B117"
+
+       android:layout_margin="8dp"
+       app:cardCornerRadius="15dp"
+       app:cardElevation="2dp"
+       android:id="@+id/membership_card">
+    <ImageView
+        android:layout_width="190dp"
+        android:layout_height="260dp"
+        android:id="@+id/membership_image1"
+    android:layout_marginLeft="10dp"
+
+        />
+       <TextView
+           android:id="@+id/membership_text1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="210dp"
+           android:layout_marginTop="15dp"
+           android:textSize="20dp"
+        android:textColor="#F3E4EAEE"
+           android:text="Price                 $ 150"
+           />
+       <TextView
+           android:id="@+id/membership_text2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="210dp"
+           android:layout_marginTop="40dp"
+           android:textSize="20dp"
+           android:textStyle="bold"
+           android:text="Offer Price      $ 130"
+           android:textColor="#F3E4EAEE"
+           />
+       <TextView
+           android:id="@+id/membership_text5"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="210dp"
+           android:layout_marginTop="80dp"
+           android:textSize="17dp"
+           android:textColor="#F3E4EAEE"
+           android:text="About this pack :\nBook unlimited Classes anytime at any centre in your city for 6 months. These workouts are great for newbies and guaranteed results."
+           />
+   </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        app:cardBackgroundColor="#AA26B117"
+        app:cardCornerRadius="15dp"
+        android:layout_margin="8dp"
+
+        app:cardElevation="2dp"
+        android:id="@+id/membership_card2">
+        <ImageView
+            android:layout_width="190dp"
+            android:layout_height="260dp"
+            android:id="@+id/membership_image2"
+            android:layout_marginLeft="10dp"
+
+            />
+        <TextView
+            android:id="@+id/membership_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:textColor="#F3E4EAEE"
+            android:text="Price                 $ 300"
+            />
+        <TextView
+            android:id="@+id/membership_text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="40dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Offer Price      $ 250"
+            android:textColor="#F3E4EAEE"
+            />
+        <TextView
+            android:id="@+id/membership_text6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="80dp"
+            android:textSize="17dp"
+            android:textColor="#F3E4EAEE"
+            android:text="About this pack :\nBook unlimited Classes anytime at any centre in your city for 12 months. These workouts are great for newbies and guaranteed results."
+            />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:cardBackgroundColor="#AA26B117"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:cardBackgroundColor="#AA26B117"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="17dp"
+            android:text="  GYM FACILITIES"
+            android:textColor="#F3E4EAEE"
+            />
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/membership_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:cardBackgroundColor="#AA26B117"
+        />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#AA26B117"
+            app:cardCornerRadius="10dp"
+
+            android:layout_margin="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/viewid">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="15dp"
+                    android:id="@+id/mtq1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="15dp"
+                    android:id="@+id/mtq2"
+                    android:layout_below="@id/mtq1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="15dp"
+                    android:id="@+id/mtq3"
+                    android:layout_below="@id/mtq2"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="15dp"
+                    android:id="@+id/mtq4"
+                    android:layout_below="@id/mtq3"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="15dp"
+                    android:id="@+id/mtq5"
+                    android:layout_below="@id/mtq4"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="15dp"
+                    android:id="@+id/click_text"
+                    android:layout_below="@id/mtq5"
+                    />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+</ScrollView>

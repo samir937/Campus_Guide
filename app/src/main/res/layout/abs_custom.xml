@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:orientation="horizontal"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        app:cardCornerRadius="2dp"
+        app:cardMaxElevation="1dp"
+        app:cardElevation="0dp"
+        android:id="@+id/arms_card"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/abs_images"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_margin="12dp" />
+
+        <TextView
+            android:id="@+id/abs_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="185dp"
+            android:layout_marginTop="25dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/abs_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="185dp"
+            android:layout_marginTop="80dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
