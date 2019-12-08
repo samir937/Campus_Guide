@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#3707B489"
+    android:background="#AA26B117"
     tools:context="com.example.GymGuide.Diet_Activity">
 
 

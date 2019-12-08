@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#3707B489"
+    android:background="#AA26B117"
     android:orientation="vertical"
     tools:context="com.example.GymGuide.GymActivtiy">
 

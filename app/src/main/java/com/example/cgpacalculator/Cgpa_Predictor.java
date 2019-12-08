@@ -53,7 +53,7 @@ public class Cgpa_Predictor extends AppCompatActivity {
                     current_cgpa_value=Double.parseDouble(currentCgpa.getText().toString());
                 }
 
-                if(current_cgpa_value <0 && current_cgpa_value>10 )
+                if(current_cgpa_value <0.0d && current_cgpa_value>10.0d )
                 {
                     currentCgpa.setError("Invalid value");
                 }
@@ -67,7 +67,7 @@ public class Cgpa_Predictor extends AppCompatActivity {
                     expected_cgpa_value=Double.parseDouble(expectedCgpa.getText().toString());
                 }
 
-                if(expected_cgpa_value<0 && expected_cgpa_value>10 )
+                if(expected_cgpa_value<0.0d && expected_cgpa_value>10.0d)
                 {
                     expectedCgpa.setError("Invalid value");
                 }
@@ -89,17 +89,18 @@ public class Cgpa_Predictor extends AppCompatActivity {
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                         InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
-                if(!expectedCgpa.getText().toString().equals("")&& !currentCgpa.getText().toString().equals("") && current_cgpa_value>0 && current_cgpa_value<=10 && expected_cgpa_value>0 && expected_cgpa_value<=10&&sems>=0 && sems<=8)
+                if(!expectedCgpa.getText().toString().equals("")&& !currentCgpa.getText().toString().equals(""))
                 {
 
                     total_cgpa=(current_cgpa_value*(8-sems));
                     required_tgpa=((expected_cgpa_value*8)-(total_cgpa))/2;
 
-                    if(required_tgpa<=10)
+                    if(required_tgpa<=10&&required_tgpa>=0 )
                     {
                         CgpaResult.setTextColor(Color.GREEN);
                         CgpaResult.setText("You wil have to maintain a minimum of  "+String.format("%.2f", required_tgpa) +" in all your upcoming semesters.");
                     }
+
                     else
                     {
                         CgpaResult.setTextColor(Color.RED);
